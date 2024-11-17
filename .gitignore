@@ -1,0 +1,8 @@
+.idea
+allure-results
+cypress/downloads
+cypress/screenshots
+cypress/parallel-weights.json
+node_modules
+runner-results
+package-lock.json
