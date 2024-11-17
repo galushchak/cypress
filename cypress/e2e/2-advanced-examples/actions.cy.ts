@@ -192,7 +192,6 @@ context('Actions', () => {
     // Select option(s) with matching text content
     cy.get('.action-select').select('apples')
     // confirm the apples were selected
-    // note that each value starts with "fr-" in our HTML
     cy.get('.action-select').should('have.value', 'fr-apples')
 
     cy.get('.action-select-multiple')

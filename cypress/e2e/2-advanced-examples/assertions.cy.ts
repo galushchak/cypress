@@ -71,7 +71,7 @@ context('Assertions', () => {
         .find('p')
         .should(($p) => {
           // https://on.cypress.io/$
-          // return an array of texts from all of the p's
+          // return an array of texts from all the p's
           const texts = $p.map((i, el) => Cypress.$(el).text())
 
           // jquery map returns jquery object

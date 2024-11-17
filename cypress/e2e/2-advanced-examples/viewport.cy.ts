@@ -17,7 +17,7 @@ context('Viewport', () => {
     cy.get('.navbar-toggle').should('be.visible').click()
     cy.get('.nav').find('a').should('be.visible')
 
-    // lets see what our app looks like on a super large screen
+    // let's see what our app looks like on a super large screen
     cy.viewport(2999, 2999)
 
     // cy.viewport() accepts a set of preset sizes
