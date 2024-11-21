@@ -1,8 +1,16 @@
 {
+  "extends": "../tsconfig.json",
+    "files": [
+      "**/*.ts",
+      "../cypress.config.ts"
+    ],
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "dom"],
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "sourceMap": false,
   },
-  "include": ["**/*.ts", "cypress.d.ts"]
+  "include": ["**/*.ts", "cypress.d.ts"],
 }

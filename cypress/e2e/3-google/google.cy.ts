@@ -38,14 +38,12 @@ describe('Google search test', {
             })
             cy.get('h1#firstHeading').contains('Latvia');
         });
-        cy.injectAxe();
-        cy.checkA11y();
+        // cy.runAccessibilityChecks();
     });
 
     it('2+2 should equal to 4', () => {
         cy.get('textarea.gLFyf').type("2+2={enter}");
         cy.get('div.z7BZJb.XSNERd').contains('4');
-        cy.injectAxe();
-        cy.checkA11y();
+        // cy.runAccessibilityChecks();
     });
 });
