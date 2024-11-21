@@ -6,4 +6,3 @@ cypress/parallel-weights.json
 node_modules
 runner-results
 package-lock.json
-multi-reporter-config.json
