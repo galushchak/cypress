@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress'
-const { allureCypress } = require("allure-cypress/reporter");
+// @ts-ignore
+import {allureCypress} from "allure-cypress/reporter";
 
 export default defineConfig({
   e2e: {

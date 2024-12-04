@@ -11,8 +11,8 @@
       "node",
       "cypress-axe"
     ],
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "sourceMap": false
   },
   "include": [
