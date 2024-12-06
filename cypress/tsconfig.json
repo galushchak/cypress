@@ -9,7 +9,8 @@
     "types": [
       "cypress",
       "node",
-      "cypress-axe"
+      "cypress-axe",
+      "allure-cypress"
     ],
     "moduleResolution": "nodenext",
     "module": "nodenext",
