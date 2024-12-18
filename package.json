@@ -29,7 +29,6 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint",
-    "lint:fix": "eslint --fix cypress",
-    "tsc": "tsc"
+    "lint:fix": "eslint --fix cypress"
   }
 }
