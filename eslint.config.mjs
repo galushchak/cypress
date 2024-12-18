@@ -10,7 +10,7 @@ export default [
   pluginChaiFriendly.configs.recommendedFlat,
   {
     ignores: ['node_modules/*'],
-    files: ['**/*.ts', '**/*.js'],
+    files: ['**/*.ts'],
     languageOptions: {
       ecmaVersion: 'latest',
       parser: parse,
