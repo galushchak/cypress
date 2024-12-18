@@ -1,3 +1,7 @@
 .idea
+allure-results
+misc
+**/downloads
+**/screenshots
 node_modules
-test-reports
+runner-results
