@@ -1,24 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "es2015",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "types": [
-      "cypress",
-      "node",
-      "cypress-axe",
-      "allure-cypress"
-    ],
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM"],
+    "types": ["cypress", "node", "cypress-axe", "allure-cypress"],
     "moduleResolution": "nodenext",
-    "module": "nodenext",
+    "module": "NodeNext",
     "sourceMap": false
   },
-  "include": [
-    "**/*.ts",
-    "cypress.d.ts",
-    "index.d.ts"
-  ]
+  "include": ["**/*.ts", "cypress.d.ts", "index.d.ts"]
 }
