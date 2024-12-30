@@ -1,5 +1,18 @@
 {
     "compilerOptions": {
-        "baseUrl": "./"
-    }
+        "baseUrl": "./",
+        "outDir": "build",
+        "target": "ES2023",
+        "lib": ["ES2023", "DOM"],
+        "downlevelIteration": true,
+        "types": ["../cypress"],
+        "skipLibCheck": true,
+        "typeRoots": ["node_modules/@types"],
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "sourceMap": false,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    },
+    "include": ["**/*.ts", "cypress.d.ts", "index.d.ts"]
 }

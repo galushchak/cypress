@@ -23,8 +23,9 @@ export default [
             cypress: pluginCypress,
         },
         rules: {
-            'cypress/unsafe-to-chain-command': 'warn',
-            'cypress/no-unnecessary-waiting': 'warn',
+            'cypress/unsafe-to-chain-command': 'error',
+            'cypress/no-unnecessary-waiting': 'error',
+            'cypress/no-assigning-return-values': 'error',
             'mocha/no-exclusive-tests': 'error',
             'mocha/no-skipped-tests': 'error',
             'mocha/no-mocha-arrows': 'off',

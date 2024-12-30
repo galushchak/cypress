@@ -1,0 +1,19 @@
+{
+    "COOKIES.PREFERENCES.POPUP": {
+        "H1": {
+            "en-GB": "Before you continue to Google",
+            "de-CH": "Bevor Sie zu Google weitergehen",
+            "lv-LV": "Pirms turpināt izmantot Google pakalpojumus…"
+        },
+        "ACCEPT.BUTTON": {
+            "en-GB": "Accept all",
+            "de-CH": "Alle akzeptieren",
+            "lv-LV": "Piekrist visiem"
+        },
+        "REJECT.BUTTON": {
+            "en-GB": "Reject all",
+            "de-CH": "Alle ablehnen",
+            "lv-LV": "Noraidīt visus"
+        }
+    }
+}
