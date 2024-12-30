@@ -9,7 +9,7 @@ export default [
     pluginCypress.configs.recommended,
     pluginChaiFriendly.configs.recommendedFlat,
     {
-        ignores: ['node_modules/*'],
+        ignores: ['node_modules/*','result/*'],
         files: ['**/*.ts'],
         languageOptions: {
             ecmaVersion: 'latest',

@@ -1,7 +1,7 @@
 declare namespace Cypress {
     // noinspection JSUnusedGlobalSymbols
     interface Chainable<Subject = any> {
-        console(method: any): any;
+        // console(method: any): any;
 
         runAccessibilityChecks(): void;
     }

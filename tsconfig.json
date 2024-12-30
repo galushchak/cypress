@@ -5,7 +5,7 @@
         "target": "ES2023",
         "lib": ["ES2023", "DOM"],
         "downlevelIteration": true,
-        "types": ["../cypress"],
+        "types": ["../cypress", "../cypress-axe"],
         "skipLibCheck": true,
         "typeRoots": ["node_modules/@types"],
         "moduleResolution": "nodenext",
