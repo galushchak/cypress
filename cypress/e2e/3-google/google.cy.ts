@@ -33,5 +33,6 @@ describe('Google search test', () => {
         searchPage.searchForText('test');
 
         cy.get('cite').contains('https://en.wikipedia.org');
+        cy.runAccessibilityChecks();
     });
 });

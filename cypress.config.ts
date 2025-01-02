@@ -9,7 +9,7 @@ export default defineConfig({
         baseUrl: 'https://www.google.com',
         chromeWebSecurity: false,
         specPattern: 'cypress/e2e/**/*.{cy,spec}.{js,ts}',
-        retries: { runMode: 1, openMode: 1 },
+        retries: { runMode: 0, openMode: 0 },
         defaultCommandTimeout: 4000,
         execTimeout: 60000,
         taskTimeout: 60000,
