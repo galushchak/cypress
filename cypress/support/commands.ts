@@ -11,25 +11,25 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
             },
         },
         (violations: Result[]) => {
-            violations.forEach(violation => {
-                const logMsg = JSON.parse(
-                    JSON.stringify(
-                        {
+            cy.task('log', 'Accessibility violation(-s):');
+            const logMsg = JSON.parse(
+                JSON.stringify(
+                    violations.map(violation => {
+                        return {
                             id: violation.id,
                             impact: violation.impact,
                             description: violation.description,
                             help: violation.help,
                             helpUrl: violation.helpUrl,
-                            nodes: violation.nodes.map(node => node.html).join(';'),
-                        },
-                        null,
-                        2,
-                    ),
-                );
-                cy.log(logMsg);
-                cy.task('log', 'Accessibility violation(-s):');
-                cy.task('log', logMsg);
-            });
+                            nodes: violation.nodes.map(node => node.html),
+                        };
+                    }),
+                    null,
+                    2,
+                ),
+            );
+            cy.log(logMsg);
+            cy.task('log', logMsg);
         },
     );
 });
