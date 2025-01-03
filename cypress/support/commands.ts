@@ -1,35 +1,37 @@
 import { Result } from 'axe-core';
 
+interface Violation { 
+    id: string; 
+    impact: string; 
+    description: string; 
+    help: string; 
+    helpUrl: string; 
+    elements: string[]; 
+};
+
 Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.injectAxe();
-    cy.checkA11y(
-        undefined,
-        {
-            runOnly: {
-                type: 'tag',
-                values: ['wcag21aa', 'wcag2a', 'wcag2aa', 'wcag21a', 'best-practice'],
-            },
-        },
-        (violations: Result[]) => {
-            cy.task('log', 'Accessibility violation(-s):');
-            const logMsg = JSON.parse(
-                JSON.stringify(
-                    violations.map(violation => {
-                        return {
-                            id: violation.id,
-                            impact: violation.impact,
-                            description: violation.description,
-                            help: violation.help,
-                            helpUrl: violation.helpUrl,
-                            nodes: violation.nodes.map(node => node.html),
-                        };
-                    }),
-                    null,
-                    2,
-                ),
+    cy.checkA11y(undefined, undefined, (violations: Result[]) => {
+    
+        let violationObj: Violation[] = new Array<Violation>();
+
+        cy.task('log', 'Accessibility violation(-s):');
+
+        violations.forEach(violation => {
+            cy.log(
+                `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.nodes.map(node => node.target.toString()).join(';')}`,
             );
-            cy.log(logMsg);
-            cy.task('log', logMsg);
-        },
-    );
+      
+            violationObj.push({
+                id: violation.id,
+                impact: violation.impact,
+                description: violation.description,
+                help: violation.help,
+                helpUrl: violation.helpUrl,
+                elements: violation.nodes.map(node => node.target.toString()),
+            });
+        });
+
+        cy.task('log', JSON.parse(JSON.stringify(violationObj, null, 2)), { log: false });
+    });
 });
