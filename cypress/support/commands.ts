@@ -32,7 +32,7 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
         });
 
         violationObj.forEach(violation => {
-            cy.window().scrollTo(0, 0, { log: false });
+            cy.window({ log: false }).scrollTo(0, 0, { log: false });
             const bodyRect = Cypress.$('body')[0].getBoundingClientRect();
 
             violation.elements
