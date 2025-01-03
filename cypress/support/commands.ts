@@ -49,23 +49,23 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
                 })
                 .filter(item => item.x > 0 && item.y > 0)
                 .forEach(item => {
-                    let newElement = document.createElement('div');
+                    let highlightElement = document.createElement('div');
                     const highlightElementStyle = {
-                        position: 'absolute',
+                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                        borderRadius: '5px',
+                        boxSizing: 'border-box',
+                        height: `${item.height}px`,
                         left: `${item.x}px`,
+                        outline: '1px solid rgba(255, 0, 0, 0.2)',
+                        pointerEvents: 'none',
+                        position: 'absolute',
                         top: `${item.y}px`,
                         width: `${item.width}px`,
-                        height: `${item.height}px`,
-                        outline: '1px dashed rgba(255, 0, 0, 0.5)',
-                        backgroundColor: 'rgba(255, 0, 0, 0.3)',
                         zIndex: '9999',
-                        pointerEvents: 'none',
-                        boxSizing: 'border-box',
-                        borderRadius: '5px',
                     };
 
-                    Object.assign(newElement.style, highlightElementStyle);
-                    Cypress.$('body').append(newElement);
+                    Object.assign(highlightElement.style, highlightElementStyle);
+                    Cypress.$('body').append(highlightElement);
                 });
         });
 
