@@ -32,7 +32,7 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
         });
 
         violationObj.forEach(violation => {
-            cy.window({ log: false }).scrollTo(0, 0);
+            cy.window().scrollTo(0, 0, { log: false });
             const bodyRect = Cypress.$('body')[0].getBoundingClientRect();
 
             violation.elements
@@ -47,20 +47,20 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
                         height: Math.max(rect.height, 0),
                     };
                 })
-                .filter(item => item.x > 0 && item.y > 0)
-                .forEach(item => {
+                .filter(element => element.x > 0 && element.y > 0)
+                .forEach(element => {
                     let highlightElement = document.createElement('div');
                     const highlightElementStyle = {
                         backgroundColor: 'rgba(255, 0, 0, 0.2)',
                         borderRadius: '5px',
                         boxSizing: 'border-box',
-                        height: `${item.height}px`,
-                        left: `${item.x}px`,
+                        height: `${element.height}px`,
+                        left: `${element.x}px`,
                         outline: '1px solid rgba(255, 0, 0, 0.2)',
                         pointerEvents: 'none',
                         position: 'absolute',
-                        top: `${item.y}px`,
-                        width: `${item.width}px`,
+                        top: `${element.y}px`,
+                        width: `${element.width}px`,
                         zIndex: '9999',
                     };
 
