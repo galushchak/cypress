@@ -25,7 +25,7 @@
         "eslint-plugin-no-only-tests": "3.3.0",
         "eslint-plugin-only-warn": "1.1.0",
         "prettier": "3.4.2",
-        "renovate": "39.90.1",
+        "renovate": "39.90.3",
         "typescript": "5.7.2"
     },
     "scripts": {
