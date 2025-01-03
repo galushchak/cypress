@@ -14,13 +14,11 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.checkA11y(undefined, undefined, (violations: Result[]) => {
         let violationObj: Violation[] = new Array<Violation>();
 
-        cy.task('log', 'Accessibility violation(-s):');
-
+        cy.task('log', 'Accessibility violation(-s):', { log: false });
         violations.forEach(violation => {
             cy.log(
                 `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.nodes.map(node => node.target.toString()).join(';')}`,
             );
-
             violationObj.push({
                 id: violation.id,
                 impact: violation.impact,
