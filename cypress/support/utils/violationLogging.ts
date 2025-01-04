@@ -9,25 +9,25 @@ export interface Violation {
 
 export function logViolations(violations: any[]): void {
     if (violations.length > 0) {
-        violations.forEach(violation => {
+        violations.forEach((violation: any): any => {
             cy.log(
-                `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.elements.map((element: any) => element).join(';')}`,
+                `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.elements.map((element: any): any => element).join(';')}`,
             );
         });
     }
 }
 
-export function highlightElements(violations: any[]): void {
+export function highlightElements(violations: any[]) {
     if (violations.length > 0) {
         violations.forEach((violation: { elements: any[] }) => {
             cy.window({ log: false }).scrollTo(0, 0, { log: false });
 
-            const bodyRect = Cypress.$('body')[0].getBoundingClientRect();
+            const bodyRect: DOMRect = Cypress.$('body')[0].getBoundingClientRect();
 
             violation.elements
-                .map((element: any) => {
-                    const el = Cypress.$(element)[0];
-                    const rect = el != null ? el.getBoundingClientRect() : { x: 0, y: 0, width: 0, height: 0 };
+                .map(element => {
+                    const el: any = Cypress.$(element)[0];
+                    const rect: any = el != null ? el.getBoundingClientRect() : { x: 0, y: 0, width: 0, height: 0 };
 
                     return {
                         selector: element,
@@ -37,9 +37,9 @@ export function highlightElements(violations: any[]): void {
                         height: Math.max(rect.height, 0),
                     };
                 })
-                .filter((element: { x: number; y: number }) => element.x > 0 && element.y > 0)
-                .forEach((element: { height: any; x: any; y: any; width: any }) => {
-                    let highlightElement = document.createElement('div');
+                .filter(element => element.x > 0 && element.y > 0)
+                .forEach(element => {
+                    let highlightElement: HTMLDivElement = document.createElement('div');
 
                     const highlightElementStyle = {
                         backgroundColor: 'rgba(255, 0, 0, 0.2)',
@@ -59,5 +59,12 @@ export function highlightElements(violations: any[]): void {
                     Cypress.$('body').append(highlightElement);
                 });
         });
+    }
+}
+
+export function consoleLog(violations: any[]): void {
+    if (violations.length > 0) {
+        cy.task('log', 'Accessibility violation(-s):', { log: false });
+        cy.task('log', JSON.parse(JSON.stringify(violations, null, 2)), { log: false });
     }
 }
