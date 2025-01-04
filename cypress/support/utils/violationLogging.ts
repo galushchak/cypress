@@ -39,9 +39,9 @@ export function highlightElements(violations: any[]) {
                 })
                 .filter(element => element.x > 0 && element.y > 0)
                 .forEach(element => {
-                    let highlightElement: HTMLDivElement = document.createElement('div');
+                    const highlightElement = document.createElement('div');
 
-                    const highlightElementStyle = {
+                    Object.assign(highlightElement.style, {
                         backgroundColor: 'rgba(255, 0, 0, 0.2)',
                         borderRadius: '5px',
                         boxSizing: 'border-box',
@@ -53,9 +53,8 @@ export function highlightElements(violations: any[]) {
                         top: `${element.y}px`,
                         width: `${element.width}px`,
                         zIndex: '9999',
-                    };
+                    });
 
-                    Object.assign(highlightElement.style, highlightElementStyle);
                     Cypress.$('body').append(highlightElement);
                 });
         });
