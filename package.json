@@ -6,15 +6,13 @@
     "homepage": "https://github.com/galushchak/cypress",
     "description": "Template project for Cypress testing.",
     "dependencies": {
-        "cypress_project": "file:"
-    },
-    "devDependencies": {
         "@babel/eslint-parser": "7.25.9",
         "@typescript-eslint/eslint-plugin": "8.19.0",
         "@typescript-eslint/parser": "8.19.0",
         "allure-commandline": "2.32.0",
         "allure-cypress": "3.0.7",
         "cypress": "13.17.0",
+        "cypress_project": "file:",
         "cypress-axe": "1.5.0",
         "cypress-parallel": "0.14.0",
         "eslint": "9.17.0",

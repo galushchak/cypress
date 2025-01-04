@@ -1,5 +1,5 @@
 import { Result } from 'axe-core';
-import { highlightElements, logViolations, Violation } from './utils/violationUtils';
+import { highlightElements, logViolations, Violation } from './utils/violationLogging';
 
 Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.injectAxe();
