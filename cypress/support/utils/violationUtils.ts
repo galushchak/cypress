@@ -1,3 +1,20 @@
+export interface Violation {
+    id: string;
+    impact: string;
+    description: string;
+    help: string;
+    helpUrl: string;
+    elements: string[];
+}
+
+export function logViolations(violations: any[]): void {
+    violations.forEach(violation => {
+        cy.log(
+            `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.elements.map((element: any) => element).join(';')}`,
+        );
+    });
+}
+
 export function highlightElements(violations: any[]): void {
     violations.forEach((violation: { elements: any[] }) => {
         cy.window({ log: false }).scrollTo(0, 0, { log: false });
