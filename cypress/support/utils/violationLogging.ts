@@ -40,14 +40,15 @@ export function highlightElements(violations: any[]) {
                 .filter(element => element.x > 0 && element.y > 0)
                 .forEach(element => {
                     const highlightElement = document.createElement('div');
+                    const highlightColor = 'rgba(255, 0, 0, 0.2)';
 
                     Object.assign(highlightElement.style, {
-                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                        backgroundColor: highlightColor,
                         borderRadius: '5px',
                         boxSizing: 'border-box',
                         height: `${element.height}px`,
                         left: `${element.x}px`,
-                        outline: '1px solid rgba(255, 0, 0, 0.2)',
+                        outline: `1px solid ${highlightColor}`,
                         pointerEvents: 'none',
                         position: 'absolute',
                         top: `${element.y}px`,
