@@ -26,14 +26,14 @@ export class AcceptCookiesPopup extends BasePage {
             .confirmPopUp()
             .get('h1')
             .should('have.text', lang[this.pageInternalName].H1[`${language}`])
-            .should('be.visible');
+            .and('be.visible');
         this.elements
             .acceptAllBtn()
             .should('have.text', lang[this.pageInternalName]['ACCEPT.BUTTON'][`${language}`])
-            .should('be.visible');
+            .and('be.visible');
         this.elements
             .declineAllBtn()
             .should('have.text', lang[this.pageInternalName]['REJECT.BUTTON'][`${language}`])
-            .should('be.visible');
+            .and('be.visible');
     }
 }
