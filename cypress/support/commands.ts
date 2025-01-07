@@ -1,5 +1,7 @@
 import { Result } from 'axe-core';
 import { consoleLog, highlightElements, logViolations, Violation } from './utils/violationLogging';
+import { requestType } from './utils/enums';
+import { requestLog, responseLog } from './utils/apiLogging';
 
 Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.injectAxe();
@@ -17,4 +19,18 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
         highlightElements(violationArr);
         consoleLog(violationArr);
     });
+});
+
+Cypress.Commands.add('apiRequest', (method: requestType, url: string, body?: any) => {
+    requestLog(method, url, body);
+    return cy
+        .request({
+            method,
+            url,
+            body,
+        })
+        .then(response => {
+            responseLog(response);
+            return cy.wrap(response);
+        });
 });
