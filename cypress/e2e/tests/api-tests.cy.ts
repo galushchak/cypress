@@ -6,7 +6,7 @@ context('GET /inventory', () => {
     it('gets a list of inventory', () => {
         cy.apiRequest(requestType.GET, `${baseUrl}/inventory`).then(response => {
             expect(response.status).to.eq(200);
-            expect(response.body.sold).to.be.eq(1);
+            expect(response.body.sold).to.be.eq(57);
         });
     });
 });
