@@ -17,6 +17,24 @@ export function logViolations(violations: any[]): void {
     }
 }
 
+const highlightColor = 'rgba(255, 0, 0, 0.2)';
+
+const highlightStyle = (element: any): any => {
+    return {
+        backgroundColor: highlightColor,
+        borderRadius: '5px',
+        boxSizing: 'border-box',
+        height: `${element.height}px`,
+        left: `${element.x}px`,
+        outline: `1px solid ${highlightColor}`,
+        pointerEvents: 'none',
+        position: 'absolute',
+        top: `${element.y}px`,
+        width: `${element.width}px`,
+        zIndex: '9999',
+    };
+};
+
 export function highlightElements(violations: any[]) {
     if (violations.length > 0) {
         violations.forEach((violation: { elements: any[] }) => {
@@ -30,7 +48,6 @@ export function highlightElements(violations: any[]) {
                     const rect: any = el != null ? el.getBoundingClientRect() : { x: 0, y: 0, width: 0, height: 0 };
 
                     return {
-                        selector: element,
                         x: Math.max(rect.x - bodyRect.x, 0),
                         y: Math.max(rect.y - bodyRect.y, 0),
                         width: Math.max(rect.width, 0),
@@ -40,21 +57,8 @@ export function highlightElements(violations: any[]) {
                 .filter(element => element.x > 0 && element.y > 0)
                 .forEach(element => {
                     const highlightElement = document.createElement('div');
-                    const highlightColor = 'rgba(255, 0, 0, 0.2)';
 
-                    Object.assign(highlightElement.style, {
-                        backgroundColor: highlightColor,
-                        borderRadius: '5px',
-                        boxSizing: 'border-box',
-                        height: `${element.height}px`,
-                        left: `${element.x}px`,
-                        outline: `1px solid ${highlightColor}`,
-                        pointerEvents: 'none',
-                        position: 'absolute',
-                        top: `${element.y}px`,
-                        width: `${element.width}px`,
-                        zIndex: '9999',
-                    });
+                    Object.assign(highlightElement.style, highlightStyle(element));
 
                     Cypress.$('body').append(highlightElement);
                 });
