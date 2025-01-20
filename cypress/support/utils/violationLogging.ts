@@ -54,7 +54,7 @@ export function highlightElements(violations: any[]) {
                         height: Math.max(rect.height, 0),
                     };
                 })
-                .filter(element => element.x > 0 && element.y > 0)
+                .filter(element => element.width > 0 && element.height > 0)
                 .forEach(element => {
                     const highlightElement = document.createElement('div');
 
