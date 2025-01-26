@@ -57,9 +57,7 @@ export function highlightElements(violations: any[]) {
                 .filter(element => element.width > 0 && element.height > 0)
                 .forEach(element => {
                     const highlightElement = document.createElement('div');
-
                     Object.assign(highlightElement.style, highlightStyle(element));
-
                     Cypress.$('body').append(highlightElement);
                 });
         });
