@@ -7,7 +7,7 @@ export interface Violation {
     elements: string[];
 }
 
-export function logViolations(violations: any[]): void {
+export const logViolations = (violations: any[]): void => {
     if (violations.length > 0) {
         violations.forEach((violation: any): any => {
             cy.log(
@@ -15,7 +15,7 @@ export function logViolations(violations: any[]): void {
             );
         });
     }
-}
+};
 
 const highlightColor = 'rgba(255, 0, 0, 0.2)';
 
@@ -35,7 +35,7 @@ const highlightStyle = (element: any): any => {
     };
 };
 
-export function highlightElements(violations: any[]) {
+export const highlightElements = (violations: any[]) => {
     if (violations.length > 0) {
         violations.forEach((violation: { elements: any[] }) => {
             cy.window({ log: false }).scrollTo(0, 0, { log: false });
@@ -62,11 +62,11 @@ export function highlightElements(violations: any[]) {
                 });
         });
     }
-}
+};
 
-export function consoleLog(violations: any[]): void {
+export const consoleLog = (violations: any[]): void => {
     if (violations.length > 0) {
         cy.task('log', 'Accessibility violation(-s):', { log: false });
         cy.task('log', JSON.parse(JSON.stringify(violations, null, 2)), { log: false });
     }
-}
+};
