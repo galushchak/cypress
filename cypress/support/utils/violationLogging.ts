@@ -14,19 +14,19 @@ export const logViolations = (violations: any[]): void => {
                 `${violation.id} - ${violation.impact.toUpperCase()}: ${violation.elements.map((element: any): any => element).join(';')}`,
             );
         });
+        cy.task('log', 'Accessibility violation(-s):', { log: false });
+        cy.task('log', JSON.parse(JSON.stringify(violations, null, 2)), { log: false });
     }
 };
 
-const highlightColor = 'rgba(255, 0, 0, 0.2)';
-
 const highlightStyle = (element: any): any => {
     return {
-        backgroundColor: highlightColor,
+        backgroundColor: 'rgba(255, 0, 0, 0.2)',
         borderRadius: '5px',
         boxSizing: 'border-box',
         height: `${element.height}px`,
         left: `${element.x}px`,
-        outline: `1px solid ${highlightColor}`,
+        outline: '2px dashed red',
         pointerEvents: 'none',
         position: 'absolute',
         top: `${element.y}px`,
@@ -61,12 +61,5 @@ export const highlightElements = (violations: any[]) => {
                     Cypress.$('body').append(highlightElement);
                 });
         });
-    }
-};
-
-export const consoleLog = (violations: any[]): void => {
-    if (violations.length > 0) {
-        cy.task('log', 'Accessibility violation(-s):', { log: false });
-        cy.task('log', JSON.parse(JSON.stringify(violations, null, 2)), { log: false });
     }
 };

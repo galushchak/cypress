@@ -1,5 +1,5 @@
 import { Result } from 'axe-core';
-import { consoleLog, highlightElements, logViolations, Violation } from './utils/violationLogging';
+import { highlightElements, logViolations, Violation } from './utils/violationLogging';
 import { requestType } from './utils/enums';
 import { requestLog, responseLog } from './utils/apiLogging';
 
@@ -17,7 +17,6 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
 
         logViolations(violationArr);
         highlightElements(violationArr);
-        consoleLog(violationArr);
     });
 });
 
