@@ -1,13 +1,7 @@
 .idea
-.vscode
-*.iml
 *.log
 
-allure-results
 allure-report
-
-build
-dist
 
 result
 runner-results

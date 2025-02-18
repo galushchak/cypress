@@ -1,7 +1,5 @@
 import * as allure from 'allure-js-commons';
 import 'cypress-axe';
-import { AcceptCookiesPopup } from 'support/pages/acceptCookies.popup';
-import { SearchPage } from 'support/pages/search.page';
 
 describe('Google search test', () => {
     beforeEach(() => {
@@ -16,7 +14,7 @@ describe('Google search test', () => {
         allure.severity('critical');
         allure.epic('Google');
         allure.feature('Essential features');
-        allure.story('Sarch');
+        allure.story('Search');
         allure.parentSuite('Tests for web search');
         allure.suite('Tests for essential features');
         allure.subSuite('Tests for search');
