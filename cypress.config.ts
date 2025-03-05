@@ -31,6 +31,12 @@ export default defineConfig({
         // experimentalWebKitSupport: true,
         defaultBrowser: 'chrome',
         setupNodeEvents(on, config) {
+            on('task', {
+                log(message: string) {
+                    console.log(message);
+                    return null;
+                },
+            });
             // noinspection Annotator
             allureCypress(on, config, {
                 resultsDir: 'result/allure-results',

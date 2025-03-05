@@ -6,7 +6,14 @@ import { requestLog, responseLog } from './utils/apiLogging';
 Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.injectAxe();
     cy.checkA11y(undefined, undefined, (violations: Result[]) => {
-        const violationArr: Violation[] = violations.map(violation => ({
+        const violationArr: {
+            id: string;
+            impact: "minor" | "moderate" | "serious" | "critical" | null | undefined;
+            description: string;
+            help: string;
+            helpUrl: string;
+            elements: string[]
+        }[] = violations.map(violation => ({
             id: violation.id,
             impact: violation.impact,
             description: violation.description,
@@ -20,7 +27,7 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
     });
 });
 
-Cypress.Commands.add('apiRequest', (method: requestType, url: string, body?: any) => {
+Cypress.Commands.add('apiRequest', (method: requestType|string, url: string, body?: any) => {
     requestLog(method, url, body);
     return cy
         .request({

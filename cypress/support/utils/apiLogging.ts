@@ -1,6 +1,6 @@
 import { requestType } from './enums';
 
-export function requestLog(method: requestType, url: string, body?: any) {
+export function requestLog(method: requestType | string, url: string, body?: any) {
     cy.log(`Request:`);
     cy.log(` Method: ${method}`);
     cy.log(`    URL: ${url}`);
