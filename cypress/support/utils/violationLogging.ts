@@ -1,4 +1,4 @@
-export const logViolations = (violations: any[]): void => {
+export const logViolations: (violations: any[]) => void = (violations: any[]): void => {
     if (violations.length > 0) {
         violations.forEach((violation: any): any => {
             cy.log(
@@ -10,7 +10,7 @@ export const logViolations = (violations: any[]): void => {
     }
 };
 
-const highlightStyle = (element: any): any => {
+const highlightStyle: (element: any) => any = (element: any): any => {
     return {
         backgroundColor: 'rgba(255, 0, 0, 0.2)',
         borderRadius: '5px',
@@ -26,15 +26,15 @@ const highlightStyle = (element: any): any => {
     };
 };
 
-export const highlightElements = (violations: any[]) => {
+export const highlightElements: (violations: any[]) => void = (violations: any[]): void => {
     if (violations.length > 0) {
-        violations.forEach((violation: { elements: any[] }) => {
+        violations.forEach((violation: { elements: any[] }): void => {
             cy.window({ log: false }).scrollTo(0, 0, { log: false });
 
             const bodyRect: DOMRect = Cypress.$('body')[0].getBoundingClientRect();
 
             violation.elements
-                .map(element => {
+                .map((element: any): any => {
                     const el: any = Cypress.$(element)[0];
                     const rect: any = el != null ? el.getBoundingClientRect() : { x: 0, y: 0, width: 0, height: 0 };
 
@@ -45,9 +45,9 @@ export const highlightElements = (violations: any[]) => {
                         height: Math.max(rect.height, 0),
                     };
                 })
-                .filter(element => element.width > 0 && element.height > 0)
-                .forEach(element => {
-                    const highlightElement = document.createElement('div');
+                .filter((element: any): any => element.width > 0 && element.height > 0)
+                .forEach((element: any): any => {
+                    const highlightElement: HTMLDivElement = document.createElement('div');
                     Object.assign(highlightElement.style, highlightStyle(element));
                     Cypress.$('body').append(highlightElement);
                 });

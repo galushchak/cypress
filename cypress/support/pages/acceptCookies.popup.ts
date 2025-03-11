@@ -1,19 +1,20 @@
 import { BasePage } from './base.page';
 import * as lang from '../../fixtures/langs.json';
+import Chainable = Cypress.Chainable;
 
 export class AcceptCookiesPopup extends BasePage {
-    private readonly pageInternalName: any = 'COOKIES.PREFERENCES.POPUP';
+    private readonly pageInternalName: string = 'COOKIES.PREFERENCES.POPUP';
 
     public constructor() {
         super();
     }
 
     public elements: any = {
-        confirmPopUp: (): any => cy.get('.dbsFrd'),
-        declineAllBtn: (): any => cy.get('button#W0wltc'),
-        acceptAllBtn: (): any => cy.get('button#L2AGLb'),
-        languageChangeBtn: (): any => cy.get('div.tn3Mmd>button'),
-        languageListItem: (language: string): any => cy.get(`div.tn3Mmd li[data-hl="${language}"]`).first(),
+        confirmPopUp: (): Chainable<JQuery<HTMLElement>> => cy.get('.dbsFrd'),
+        declineAllBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('button#W0wltc'),
+        acceptAllBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('button#L2AGLb'),
+        languageChangeBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('div.tn3Mmd>button'),
+        languageListItem: (language: string): Chainable<JQuery<HTMLElement>> => cy.get(`div.tn3Mmd li[data-hl="${language}"]`).first(),
     };
 
     public changeLanguage(language = 'lv-LV'): void {

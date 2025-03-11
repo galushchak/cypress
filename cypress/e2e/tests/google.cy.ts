@@ -3,12 +3,12 @@ import 'cypress-axe';
 import { AcceptCookiesPopup } from 'support/pages/acceptCookies.popup';
 import { SearchPage } from 'support/pages/search.page';
 
-describe('Google search test', () => {
-    beforeEach(() => {
+describe('Google search test', (): void => {
+    beforeEach((): void => {
         cy.visit('https://en.wikipedia.org/wiki/Test');
     });
 
-    it('performs google search', () => {
+    it('performs google search', (): void => {
         allure.description('This test performs search for some text.');
         allure.displayName('Test Search for text');
         allure.owner('Alex G');
