@@ -30,6 +30,7 @@ export default defineConfig({
         experimentalRunAllSpecs: true,
         // experimentalWebKitSupport: true,
         defaultBrowser: 'chrome',
+        includeShadowDom: true,
         setupNodeEvents(on, config) {
             on('task', {
                 log(message: string) {
