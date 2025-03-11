@@ -1,5 +1,7 @@
 import * as allure from 'allure-js-commons';
 import 'cypress-axe';
+import { AcceptCookiesPopup } from 'support/pages/acceptCookies.popup';
+import { SearchPage } from 'support/pages/search.page';
 
 describe('Google search test', () => {
     beforeEach(() => {
@@ -21,16 +23,16 @@ describe('Google search test', () => {
         allure.parameter('env', Cypress.env('baseUrl'));
         allure.parameter('time', new Date().toUTCString());
 
-        // const popup = new AcceptCookiesPopup();
-        // popup.confirmPopUpChecks();
-        // popup.changeLanguage('en-GB');
-        // popup.confirmPopUpChecks('en-GB');
-        // popup.elements.acceptAllBtn().click();
+        const popup = new AcceptCookiesPopup();
+        popup.confirmPopUpChecks();
+        popup.changeLanguage('en-GB');
+        popup.confirmPopUpChecks('en-GB');
+        popup.elements.acceptAllBtn().click();
 
-        // const searchPage = new SearchPage();
-        // searchPage.searchForText('test');
+        const searchPage = new SearchPage();
+        searchPage.searchForText('test');
 
-        // cy.get('cite').contains('https://en.wikipedia.org');
+        cy.get('cite').contains('https://en.wikipedia.org');
         cy.runAccessibilityChecks();
     });
 });

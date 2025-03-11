@@ -1,5 +1,5 @@
 import { Result } from 'axe-core';
-import { highlightElements, logViolations, Violation } from './utils/violationLogging';
+import { highlightElements, logViolations } from './utils/violationLogging';
 import { requestType } from './utils/enums';
 import { requestLog, responseLog } from './utils/apiLogging';
 

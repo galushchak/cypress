@@ -1,12 +1,3 @@
-export interface Violation {
-    id: string;
-    impact: string;
-    description: string;
-    help: string;
-    helpUrl: string;
-    elements: string[];
-}
-
 export const logViolations = (violations: any[]): void => {
     if (violations.length > 0) {
         violations.forEach((violation: any): any => {
