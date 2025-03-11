@@ -6,33 +6,29 @@
     "homepage": "https://github.com/galushchak/cypress",
     "description": "Template project for Cypress testing.",
     "dependencies": {
-        "@babel/eslint-parser": "7.26.8",
-        "@typescript-eslint/eslint-plugin": "8.24.1",
-        "@typescript-eslint/parser": "8.24.1",
-        "allure-commandline": "2.32.2",
+        "@babel/eslint-parser": "7.26.10",
+        "@typescript-eslint/eslint-plugin": "8.26.1",
+        "@typescript-eslint/parser": "8.26.1",
+        "allure-commandline": "2.33.0",
         "allure-cypress": "3.2.0",
-        "cypress": "14.0.3",
         "cypress_project": "file:",
         "cypress-axe": "1.6.0",
-        "cypress-parallel": "0.14.0",
-        "eslint": "9.20.1",
-        "eslint-config-prettier": "10.0.1",
+        "eslint": "9.22.0",
+        "eslint-config-prettier": "10.1.1",
         "eslint-plugin-chai-friendly": "1.0.1",
-        "eslint-plugin-cypress": "4.1.0",
+        "eslint-plugin-cypress": "4.2.0",
         "eslint-plugin-mocha": "10.5.0",
         "eslint-plugin-no-only-tests": "3.3.0",
         "eslint-plugin-only-warn": "1.1.0",
-        "prettier": "3.5.1",
-        "renovate": "39.174.3",
-        "typescript": "5.7.3"
+        "prettier": "3.5.3",
+        "renovate": "39.195.0",
+        "typescript": "5.8.2"
     },
     "scripts": {
         "chrome:test": "npx cypress run --browser chrome --headed --config-file \"cypress.test.ts\"",
         "edge:test": "npx cypress run --browser edge --headed --config-file \"cypress.test.ts\"",
         "chrome:dev": "npx cypress run --browser chrome --headed --config-file \"cypress.dev.ts\"",
         "edge:dev": "npx cypress run --browser edge --headed --config-file \"cypress.dev.ts\"",
-        "cy:run": "cypress run --browser chrome --headed",
-        "cy:parallel": "cypress-parallel -s cy:run -t 3 -d \"cypress/e2e/*/*.ts\"",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "lint": "eslint cypress",
@@ -40,5 +36,8 @@
         "allure:serve": "cd ./result&npx allure serve",
         "allure:report": "cd ./result&npx allure generate -c -o \"./allure-report\"",
         "renovate:local": "npx renovate --platform=local --repository-cache=reset"
+    },
+    "devDependencies": {
+        "cypress": "14.1.0"
     }
 }
