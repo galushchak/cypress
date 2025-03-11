@@ -8,11 +8,11 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
     cy.checkA11y(undefined, undefined, (violations: Result[]) => {
         const violationArr: {
             id: string;
-            impact: "minor" | "moderate" | "serious" | "critical" | null | undefined;
+            impact: 'minor' | 'moderate' | 'serious' | 'critical' | null | undefined;
             description: string;
             help: string;
             helpUrl: string;
-            elements: string[]
+            elements: string[];
         }[] = violations.map(violation => ({
             id: violation.id,
             impact: violation.impact,
@@ -27,7 +27,7 @@ Cypress.Commands.add('runAccessibilityChecks', () => {
     });
 });
 
-Cypress.Commands.add('apiRequest', (method: requestType|string, url: string, body?: any) => {
+Cypress.Commands.add('apiRequest', (method: requestType | string, url: string, body?: any) => {
     requestLog(method, url, body);
     return cy
         .request({

@@ -2,7 +2,7 @@ import { BasePage } from './base.page';
 import * as lang from '../../fixtures/langs.json';
 
 export class AcceptCookiesPopup extends BasePage {
-    private readonly pageInternalName: any  = 'COOKIES.PREFERENCES.POPUP';
+    private readonly pageInternalName: any = 'COOKIES.PREFERENCES.POPUP';
 
     public constructor() {
         super();

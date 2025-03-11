@@ -1,4 +1,4 @@
-FROM cypress/base:22.12.0
+FROM cypress/base:22.14.0
 
 WORKDIR /tests
 
