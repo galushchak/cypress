@@ -29,16 +29,19 @@ Cypress.Commands.add('runAccessibilityChecks', (): void => {
     });
 });
 
-Cypress.Commands.add('apiRequest', (method: requestType | string, url: string, body?: any): Chainable<Response<any>> => {
-    requestLog(method, url, body);
-    return cy
-        .request({
-            method,
-            url,
-            body,
-        })
-        .then((response: Response<any>): Chainable<Response<any>> => {
-            responseLog(response);
-            return cy.wrap(response);
-        });
-});
+Cypress.Commands.add(
+    'apiRequest',
+    (method: requestType | string, url: string, body?: any): Chainable<Response<any>> => {
+        requestLog(method, url, body);
+        return cy
+            .request({
+                method,
+                url,
+                body,
+            })
+            .then((response: Response<any>): Chainable<Response<any>> => {
+                responseLog(response);
+                return cy.wrap(response);
+            });
+    },
+);

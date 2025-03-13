@@ -21,8 +21,11 @@
         "eslint-plugin-no-only-tests": "3.3.0",
         "eslint-plugin-only-warn": "1.1.0",
         "prettier": "3.5.3",
-        "renovate": "39.195.0",
+        "renovate": "39.199.1",
         "typescript": "5.8.2"
+    },
+    "devDependencies": {
+        "cypress": "14.2.0"
     },
     "scripts": {
         "chrome:test": "npx cypress run --browser chrome --headed --config-file \"cypress.test.ts\"",
@@ -36,8 +39,5 @@
         "allure:serve": "cd ./result&npx allure serve",
         "allure:report": "cd ./result&npx allure generate -c -o \"./allure-report\"",
         "renovate:local": "npx renovate --platform=local --repository-cache=reset"
-    },
-    "devDependencies": {
-        "cypress": "14.1.0"
     }
 }

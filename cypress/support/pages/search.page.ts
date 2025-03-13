@@ -7,7 +7,7 @@ export class SearchPage extends BasePage {
     }
 
     public elements: any = {
-        searchTextArea: ():Chainable<JQuery<HTMLElement>> => cy.get('textarea.gLFyf'),
+        searchTextArea: (): Chainable<JQuery<HTMLElement>> => cy.get('textarea.gLFyf'),
     };
 
     public searchForText(searchText: string): void {

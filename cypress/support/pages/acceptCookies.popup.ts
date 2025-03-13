@@ -14,7 +14,8 @@ export class AcceptCookiesPopup extends BasePage {
         declineAllBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('button#W0wltc'),
         acceptAllBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('button#L2AGLb'),
         languageChangeBtn: (): Chainable<JQuery<HTMLElement>> => cy.get('div.tn3Mmd>button'),
-        languageListItem: (language: string): Chainable<JQuery<HTMLElement>> => cy.get(`div.tn3Mmd li[data-hl="${language}"]`).first(),
+        languageListItem: (language: string): Chainable<JQuery<HTMLElement>> =>
+            cy.get(`div.tn3Mmd li[data-hl="${language}"]`).first(),
     };
 
     public changeLanguage(language = 'lv-LV'): void {
